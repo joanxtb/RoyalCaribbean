@@ -2,7 +2,7 @@ var app = {
 
     /* ROUTING */
     renderLogin: function () {        
-        $('body').html(this.loginTemplate());
+        $('#main-wrapper').html(this.loginTemplate());
     },
 
     /* FEEDBACK */

@@ -1,6 +1,19 @@
 ﻿body {
     font-family: Arial;
+    height: 100%;
     background-color: #477FB0;
+}
+
+#bottom-sea {
+    position: absolute;
+    bottom: 0;
+    height: 187px;
+    width: 100%;
+    background: url(../img/sea.jpg) repeat-x bottom center #477FB0;
+}
+
+#main-wrapper {
+    height: 100%;
 }
 
 #logo {

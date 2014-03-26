@@ -5,22 +5,23 @@
     <link href="css/style.min.css" rel="stylesheet" />
 </head>
 <body>
+    <div id="main-wrapper">
+    </div>
+    <div id="loading"></div>
+    <div id="bottom-sea"></div>
     <!-- templates -->
     <script id="login-template" type="text/x-handlebars-template">
-        <div id="main-wrapper">
-            <div id="logo"></div>
-            <div id="login-wrapper" class="rounded-corners">
-                <form id="login-form">
-                    <div class="editor-label">Username</div>
-                    <div class="editor-field"><input type="text" name="username" class="rounded-corners" /></div>
-                    <div class="editor-label">Password</div>
-                    <div class="editor-field"><input type="password" name="username" class="rounded-corners" /></div>
-                    <div class="editor-field align-right"><a class="rounded-corners btn icon enter" id="btn-login">Log in</a></div>
-                    <div class="message"></div>
-                </form>
-            </div>
+        <div id="logo"></div>
+        <div id="login-wrapper" class="rounded-corners">
+            <form id="login-form">
+                <div class="editor-label">Username</div>
+                <div class="editor-field"><input type="text" name="username" class="rounded-corners" /></div>
+                <div class="editor-label">Password</div>
+                <div class="editor-field"><input type="password" name="username" class="rounded-corners" /></div>
+                <div class="editor-field align-right"><a class="rounded-corners btn icon enter" id="btn-login">Log in</a></div>
+                <div class="message"></div>
+            </form>
         </div>
-        <div id="loading"></div>
     </script>
 
     <!-- scripts -->
