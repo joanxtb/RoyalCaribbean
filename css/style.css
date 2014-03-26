@@ -1,19 +1,28 @@
-﻿body {
-    font-family: Arial;
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: source-sans-pro, serif;
     height: 100%;
     background-color: #477FB0;
 }
 
 #bottom-sea {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 187px;
     width: 100%;
     background: url(../img/sea.jpg) repeat-x bottom center #477FB0;
+    z-index: 1;
 }
 
 #main-wrapper {
     height: 100%;
+    z-index: 2;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 #logo {
@@ -32,7 +41,7 @@
     color: White;
 }
 
-input[type=button], input[type=submit], .btn {
+.btn {
     cursor: pointer;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -64,6 +73,11 @@ input[type=button], input[type=submit], .btn {
     text-overflow: ellipsis;
 }
 
+    .btn.tappable-active {
+        background-color: #0077b2;
+        color: White !important;
+    }
+
     .btn.icon, button.icon, input[type=submit].icon {
         position: relative;
         padding-left: 32px;
@@ -72,9 +86,7 @@ input[type=button], input[type=submit], .btn {
         .btn.icon:after, button.icon:after, input[type=submit].icon:after {
             background: url(../img/icons.png) 0 0;
             -moz-background-size: 520px 444px;
-            -o-background-size: 520px 444px;
-            520px 120px;
-            520px 120px;
+            -o-background-size: 520px 444px;            
             -webkit-background-size: 520px 444px;
             background-size: 520px 444px;
             content: '';
@@ -86,8 +98,11 @@ input[type=button], input[type=submit], .btn {
             left: 0;
         }
 
-        .btn.icon.enter:after, button.icon.enter:after, input[type=submit].icon.enter:after {
+        .btn.icon.enter:after {
             background-position: 0 0;
+        }
+        .btn.icon.tappable-active.enter:after {
+            background-position: 0 -32px;
         }
 
 .rounded-corners {
@@ -101,8 +116,26 @@ input[type=button], input[type=submit], .btn {
 }
 
 input[type=text], input[type=password] {
+    outline: none;
     padding: 5px;
+    border: 1px solid #DDDDDD;
     min-width: 200px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
+    }
+
+.input-validation-error {
+    box-shadow: 0 0 5px #f8b10b;
+    border: 1px solid #f8b10b !important;
+    background-color: #f8b10b;
 }
 
 .align-right {
