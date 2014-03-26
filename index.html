@@ -7,7 +7,7 @@
 <body>
     <!-- templates -->
     <script id="login-template" type="text/x-handlebars-template">
-        <div class="main-wrapper">
+        <div id="main-wrapper">
             <div id="logo"></div>
             <div id="login-wrapper" class="rounded-corners">
                 <form id="login-form">
@@ -15,16 +15,19 @@
                     <div class="editor-field"><input type="text" name="username" class="rounded-corners" /></div>
                     <div class="editor-label">Password</div>
                     <div class="editor-field"><input type="password" name="username" class="rounded-corners" /></div>
-                    <div class="editor-field align-right"><input type="submit" value="Log in" class="rounded-corners" /></div>
+                    <div class="editor-field align-right"><a class="rounded-corners btn icon enter" id="btn-login">Log in</a></div>
+                    <div class="message"></div>
                 </form>
             </div>
         </div>
+        <div id="loading"></div>
     </script>
 
     <!-- scripts -->
     <script src="phonegap.js"></script>
     <script src="lib/jquery-1.8.2.min.js"></script>
     <script src="lib/handlebars.js"></script>
+    <script src="lib/jquery.blockUI.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

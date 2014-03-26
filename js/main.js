@@ -1,4 +1,4 @@
-var app = {        
+var app = {    
 
     /* ROUTING */
     renderLogin: function () {        
@@ -23,3 +23,20 @@ var app = {
 };
 
 app.initialize();
+
+/* Click Handlers */
+$(document).on('click', '#btn-login', function (e) {
+    e.preventDefault();
+    showLoader();
+});
+
+function showLoader() {
+    $.blockUI({
+        message: $('#loading'),
+        css: { border: 'none' },
+        baseZ: 99999
+    });
+}
+function hideLoader() {
+    $.unblockUI();
+}
