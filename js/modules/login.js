@@ -16,6 +16,25 @@ var LoginView = function (store) {
             var __this = $(this);
             if (__this.valid()) {
                 showLoader();
+                var __connector = new connector();
+                __connector.login($("#txtUsername").val(), $("#txtPassword").val(), function (response) {
+                    
+                    // success callback       
+                    hideLoader();
+                    if (response.success == true) {
+                        // save owner locally
+                        store.setOwner(response.user, function () { window.location.hash = '#spreads'; });                        
+                    }
+                    else
+                        __this.find('.message').html(response.message);
+
+                }, function (response) {
+                    
+                    // error callback
+                    hideLoader();
+                    __this.find('.message').html(response.message);
+
+                });                
             }
         });
     };

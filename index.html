@@ -13,18 +13,38 @@
     <div id="bottom-sea"></div>
 
     <!-- templates -->
+    <!-- login -->
     <script id="login-template" type="text/x-handlebars-template">
         <div id="logo"></div>
         <div id="login-wrapper" class="rounded-corners">
             <form id="login-form">
                 <div class="editor-label">Username</div>
-                <div class="editor-field"><input type="text" name="username" class="rounded-corners" data-val="true" data-val-required="*" /></div>
+                <div class="editor-field"><input type="text" name="username" id="txtUsername" class="rounded-corners" data-val="true" data-val-required="*" /></div>
                 <div class="editor-label">Password</div>
-                <div class="editor-field"><input type="password" name="username" class="rounded-corners" data-val="true" data-val-required="*" /></div>
+                <div class="editor-field"><input type="password" name="password" id="txtPassword" class="rounded-corners" data-val="true" data-val-required="*" /></div>
                 <div class="editor-field align-right"><a class="rounded-corners btn icon enter" id="btn-login">Log in</a></div>
                 <div class="message"></div>
             </form>
         </div>
+    </script>
+
+    <!-- spreads -->
+    <script id="spreads-list-template" type="text/x-handlebars-template">
+        <div class="header">here goes the options</div>
+        <div class="post-header-content">
+            <div id="main-title">Here's the brochure of </div>
+            <ul class="list" id="spread-list"></ul>
+        </div>
+    </script>
+
+    <script id="spread-li-template" type="text/x-handlebars-template">
+        {{#.}}
+        <li>
+            <div class="font-14" style="line-height: 14px;">{{title}}</div>
+            <div class="font-10">{{sectionName}}</div>
+            <img src="http://royalcplanner.s3.amazonaws.com/spreads/{{file}}-M.png" alt="{{title}}" width="100%;">
+        </li>
+        {{/.}}
     </script>
 
     <!-- scripts -->
@@ -34,8 +54,10 @@
     <script src="lib/validate/jquery.validate.unobtrusive.min.js"></script>
     <script src="lib/handlebars.js"></script>
     <script src="lib/jquery.blockUI.min.js"></script>
-
+    <script src="js/storage/storage.js"></script>
+    <script src="js/storage/connector.js"></script>
     <script src="js/modules/login.js"></script>
+    <script src="js/modules/spreads.js"></script>
     <script src="js/main.js"></script>
 
 </body>

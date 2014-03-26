@@ -1,10 +1,5 @@
 var app = {    
-
-    /* ROUTING */
-    renderLogin: function () {        
-        
-    },
-
+    
     /* FEEDBACK */
     showAlert: function (message, title) {
         if (navigator.notification)
@@ -16,13 +11,20 @@ var app = {
     /* INIT */
     initialize: function () {        
         var self = this;
+
+        /* routes */
+        this.spreadsURL = /^#spreads/;
+        
+        /* events */
         this.registerEvents();
-        $('#main-wrapper').html(new LoginView().render().el);
-        //self.showAlert('Application initialized successfully', 'Royal Caribbean')
-        //this.loginTemplate = Handlebars.compile($("#login-template").html());
-        //self.renderLogin();        
+        
+        /* Local Storage */
+        this.store = new Storage(function () {
+            self.route(self.store);
+        });        
     },
 
+    /* REGISTER EVENTS */
     registerEvents: function () {
         var self = this;
         // Check of browser supports touch events...
@@ -43,13 +45,32 @@ var app = {
                 $(event.target).removeClass('tappable-active');
             });
         }
+
+        /* Main routing trigger */
+        $(window).on('hashchange', $.proxy(this.route, this));
+
+    },
+
+    route: function () {
+        var hash = window.location.hash;
+        console.log(window.location.hash);
+        if (!hash) {
+            $('#main-wrapper').html(new LoginView(this.store).render().el);
+            return;
+        }
+
+        // spreads
+        if (hash.match(app.spreadsURL)) {
+            //this.store.findById(Number(match[1]), function (employee) {
+                $('#main-wrapper').html(new SpreadsView(this.store).render().el);
+            //});
+        }
     }
 };
 
 app.initialize();
 
-
-
+/* ADDITIONAL FUNCTIONS */
 function showLoader() {
     $.blockUI({
         message: $('#loading'),
