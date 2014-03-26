@@ -1,19 +1,10 @@
 <!doctype html>
 <html>
 <head><title>Silly App</title></head>
-<body>
-    <button id="doit">show date</button>
-    <button id="clear">clear it</button>
-    <div id="container"></div>
-    <script src="js/zepto.js"></script>
-    <script src="js/silly.js"></script>
-    <script>
-        $("#doit").click(function () {
-            SILLY.DoIt($("#container"));
-        });
-        $("#clear").click(function () {
-            $("#container").html('');
-        });
-    </script>
+<body>    
+    <div id="container">This is the app</div>
+    <script src="phonegap.js"></script> 
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script src="js/main.js"></script>   
 </body>
 </html>
