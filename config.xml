@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.casa.royalcaribbean.plannertool"
+        versionCode="1"
+        version   = "0.0.1">
+
+  <!-- versionCode is optional and Android only -->
+
+  <name>Royal Caribbean Planner Tool</name>
+
+  <description>
+    A simple version of the Royal Caribbean Brochure Planner Tool
+  </description>
+
+  <author href="https://plus.google.com/+FreddyJoanTorresBrandy" email="joanxtb@gmail.com">
+    Freddy Joan Torres Brandy
+  </author>
+
+  <feature name="http://api.phonegap.com/1.0/camera"/>
+  <feature name="http://api.phonegap.com/1.0/contacts"/>
+  <feature name="http://api.phonegap.com/1.0/file"/>
+  <feature name="http://api.phonegap.com/1.0/geolocation"/>
+  <feature name="http://api.phonegap.com/1.0/media"/>
+  <feature name="http://api.phonegap.com/1.0/network"/>
+  <feature name="http://api.phonegap.com/1.0/notification"/>
+
+</widget>
