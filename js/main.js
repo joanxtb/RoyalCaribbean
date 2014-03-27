@@ -109,7 +109,7 @@ $(document).on('click', '#btnMainMenu', function (e) {
         $("#menu").animate({ left: '0px' }, 300, function () { menuStatus = true; });
     } else {
         // opened -> close it
-        $("#menu").animate({ left: '-165px' }, 300, function () { menuStatus = false; });
+        $("#menu").animate({ left: '-166px' }, 300, function () { menuStatus = false; });
     }
 });
 
@@ -121,7 +121,7 @@ $(document).on('click', '#btnExit', function (e) {
 $(document).on('swipeleft', '.post-header-content', function () {
     if (menuStatus) {
         // opened -> close it
-        $("#menu").animate({ left: '-165px' }, 300, function () { menuStatus = false; });
+        $("#menu").animate({ left: '-166px' }, 300, function () { menuStatus = false; });
     }
 });
 
@@ -130,8 +130,4 @@ $(document).on('swiperight', '.post-header-content', function () {
         // closed -> open it
         $("#menu").animate({ left: '0px' }, 300, function () { menuStatus = true; });
     }
-});
-
-jQuery(document).ajaxComplete(function () {
-    $.validator.unobtrusive.parse("form");    
 });

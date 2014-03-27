@@ -332,7 +332,7 @@ input[type=text], input[type=password] {
 #menu {
     position: fixed;
     top: 40px;
-    left: -165px;
+    left: -166px;
     width: 165px;
     height: 100%;
     display: block !important;
