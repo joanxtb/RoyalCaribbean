@@ -1,10 +1,8 @@
-﻿var SpreadsView = function (store) {
+﻿var SpreadsView = function (store) {    
 
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
-        
-        /* Events */
     }
 
     this.render = function () {

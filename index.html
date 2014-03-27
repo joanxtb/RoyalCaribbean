@@ -11,6 +11,11 @@
     </div>
     <div id="loading"></div>
     <div id="bottom-sea"></div>
+    <div id="menu">
+        <a href="#spreads" class="button icon spreads active"><span class="text">Spreads</span></a>
+        <a href="#notes" class="button icon pin"><span class="text">Notes</span></a>
+        <a href="#exit" class="button icon exit"><span class="text">Log out</span></a>
+    </div>
 
     <!-- templates -->
     <!-- login -->
@@ -30,7 +35,11 @@
 
     <!-- spreads -->
     <script id="spreads-list-template" type="text/x-handlebars-template">
-        <div class="header">here goes the options</div>
+        <div id="header">
+            <span class="button icon menu" id="btnMainMenu"><span class="button icon royal"><span class="text" style="margin-left: 8px;">Royal Caribbean</span></span></span>
+            <span class="button icon three-points float-right" id="btnSubMenu"></span>
+            <div class="clear"></div>
+        </div>
         <div class="post-header-content">
             <div id="main-title">Here's the brochure of </div>
             <ul class="list" id="spread-list"></ul>
@@ -40,9 +49,15 @@
     <script id="spread-li-template" type="text/x-handlebars-template">
         {{#.}}
         <li>
-            <div class="font-14" style="line-height: 14px;">{{title}}</div>
-            <div class="font-10">{{sectionName}}</div>
-            <img src="http://royalcplanner.s3.amazonaws.com/spreads/{{file}}-M.png" alt="{{title}}" width="100%;">
+            <div class="stack-icon">
+                <div class="font-10 toBold" style="line-height: 14px;">{{title}}</div>
+                <div class="font-10 brown">{{sectionName}}</div>
+            </div>
+            <div class="img-wrapper">
+                <img src="http://royalcplanner.s3.amazonaws.com/spreads/{{file}}-M.png" alt="{{title}}">
+                <!--<div class="fake"></div>-->
+            </div>
+
         </li>
         {{/.}}
     </script>

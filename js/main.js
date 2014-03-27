@@ -51,19 +51,25 @@ var app = {
 
     },
 
+    /* ROUTING */
     route: function () {
         var hash = window.location.hash;
-        console.log(window.location.hash);
+        
+        /* Login */
         if (!hash) {
-            $('#main-wrapper').html(new LoginView(this.store).render().el);
+            // look for local storage:
+            var __owner = this.store.getOwner();
+            if (__owner != null) {
+                $('#main-wrapper').html(new SpreadsView(this.store).render().el); // spreads view
+            } else 
+                $('#main-wrapper').html(new LoginView(this.store).render().el); // login page
+
             return;
         }
 
-        // spreads
-        if (hash.match(app.spreadsURL)) {
-            //this.store.findById(Number(match[1]), function (employee) {
-                $('#main-wrapper').html(new SpreadsView(this.store).render().el);
-            //});
+        /* Spreads */
+        if (hash.match(app.spreadsURL)) {            
+            $('#main-wrapper').html(new SpreadsView(this.store).render().el);            
         }
     }
 };
@@ -81,3 +87,31 @@ function showLoader() {
 function hideLoader() {
     $.unblockUI();
 }
+
+var menuStatus = false;
+
+/* Events */
+$(document).on('click', '#btnMainMenu', function (e) {
+    e.preventDefault();
+    if (menuStatus == false) {
+        // closed -> open it
+        $("#menu").animate({ left: '0px' }, 300, function () { menuStatus = true; });
+    } else {
+        // opened -> close it
+        $("#menu").animate({ left: '-165px' }, 300, function () { menuStatus = false; });
+    }
+});
+
+$(document).on('swipeleft', '.post-header-content', function () {
+    if (menuStatus) {
+        // opened -> close it
+        $("#menu").animate({ left: '-165px' }, 300, function () { menuStatus = false; });
+    }
+});
+
+$(document).on('swiperight', '.post-header-content', function () {
+    if (!menuStatus) {
+        // closed -> open it
+        $("#menu").animate({ left: '0px' }, 300, function () { menuStatus = true; });
+    }
+});

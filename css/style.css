@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: source-sans-pro, serif;
+    font-family: Arial, serif;
     height: 100%;
     background-color: #477FB0;
 }
@@ -73,43 +73,111 @@ body {
     text-overflow: ellipsis;
 }
 
-    .btn.tappable-active {
-        background-color: #0077b2;
-        color: White !important;
+.button {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 14px;
+    -webkit-transition: box-shadow .25s;
+    -moz-transition: box-shadow .25s;
+    -o-transition: box-shadow .25s;
+    transition: box-shadow .25s;
+    color: #454545;
+    /*padding: 7px 8px;*/
+    display: inline-block;
+    margin: 0;
+    /*overflow: hidden;*/
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    min-height: 32px;
+}
+
+    .button .text {        
+        line-height: 30px;
+        font-size: 14pt;
+        text-decoration: none;
+    }
+    a.button { text-decoration: none; }
+
+.btn.tappable-active, .button.tappable-active {
+    background-color: #0077b2;
+    color: White !important;
+}
+
+.btn.icon, .button.icon {
+    position: relative;
+    padding-left: 32px;
+}
+
+    .btn.icon:after, .button.icon:after {
+        background: url(../img/icons.png) 0 0;
+        -moz-background-size: 520px 444px;
+        -o-background-size: 520px 444px;
+        -webkit-background-size: 520px 444px;
+        background-size: 520px 444px;
+        content: '';
+        display: block;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: -1px;
+        left: 0;
     }
 
-    .btn.icon, button.icon, input[type=submit].icon {
-        position: relative;
-        padding-left: 32px;
+    .btn.icon.enter:after, .button.icon.enter:after {
+        background-position: 0 0;
     }
 
-        .btn.icon:after, button.icon:after, input[type=submit].icon:after {
-            background: url(../img/icons.png) 0 0;
-            -moz-background-size: 520px 444px;
-            -o-background-size: 520px 444px;
-            -webkit-background-size: 520px 444px;
-            background-size: 520px 444px;
-            content: '';
-            display: block;
-            width: 32px;
-            height: 32px;
-            position: absolute;
-            top: -1px;
-            left: 0;
-        }
+    .btn.icon.tappable-active.enter:after, .button.icon.tappable-active.enter:after {
+        background-position: 0 -32px;
+    }
 
-        .btn.icon.enter:after {
-            background-position: 0 0;
-        }
+    .btn.icon.menu:after, .button.icon.menu:after {
+        background-position: 0 -64px;
+    }
 
-        .btn.icon.tappable-active.enter:after {
-            background-position: 0 -32px;
-        }
+    .btn.icon.royal:after, .button.icon.royal:after {
+        background-position: 0 -96px;
+    }
+
+    .btn.icon.three-points:after, .button.icon.three-points:after {
+        background-position: -32px -64px;
+    }
+
+    .btn.icon.spreads:after, .button.icon.spreads:after {
+        background-position: -32px 0;
+    }
+    .btn.icon.spreads.active:after, .button.icon.spreads.active:after {
+        background-position: -32px -32px;
+    }
+
+    .btn.icon.pin:after, .button.icon.pin:after {
+        background-position: -64px 0;
+    }
+
+    .btn.icon.exit:after, .button.icon.exit:after {
+        background-position: -96px 0;
+    }
 
 .rounded-corners {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
 }
 
 .editor-field {
@@ -139,6 +207,12 @@ input[type=text], input[type=password] {
     background-color: #f8b10b;
 }
 
+.stack-icon {
+    background: url(../img/stack.png) no-repeat 8px center;
+    padding-left: 42px;
+    margin-bottom: 10px;
+}
+
 .align-right {
     text-align: right;
 }
@@ -160,19 +234,28 @@ input[type=text], input[type=password] {
     margin: -60px 0 0 -60px;
 }
 
-.header {
-    height: 40px;
+#header {
+    height: 35px;
     position: fixed;
     top: 0;
     border-bottom: 1px solid white;
     width: 100%;
     background-color: #ffbd17;
     color: black;
+    z-index: 100;
+    padding-top: 5px;
+}
+
+#main-menu-button {
+}
+
+#btnSubMenu {
+    margin-right: 10px;
 }
 
 .post-header-content {
     margin-top: 40px;
-    background-color: White;
+    background-color: #f5f5f5;
 }
 
     .post-header-content h2 {
@@ -189,8 +272,80 @@ input[type=text], input[type=password] {
 .list li {
     padding: 10px 0;
 }
-.list li > div{ padding: 0 10px; }
 
-.font-10{font-size: 10pt;}
-.font-14{font-size: 14pt;}
-.font-16{font-size: 16pt;}
+    .list li > span {
+        padding: 0 10px;
+        display: block;
+    }
+
+.toBold {
+    font-weight: bold;
+}
+
+.font-10 {
+    font-size: 10pt;
+}
+
+.font-12 {
+    font-size: 12pt;
+}
+
+.font-14 {
+    font-size: 14pt;
+}
+
+.font-16 {
+    font-size: 16pt;
+}
+
+.brown {
+    color: brown;
+}
+
+.img-wrapper {
+    position: relative;
+    min-height: 280px;
+}
+
+    .img-wrapper > .fake {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        width: 120px;
+        height: 120px;
+        padding: 2px;
+        font-size: 20px;
+        color: #fff;
+        z-index: 0;
+        background: url("../img/loader.gif") no-repeat #09f 14px 15px;
+        border-radius: 63px;
+        border: 3px solid #e0e0e0;
+        margin: -60px 0 0 -60px;
+    }
+
+    .img-wrapper img {
+        z-index: 1;
+        width: 100%;
+    }
+
+#menu {
+    position: fixed;
+    top: 40px;
+    left: -165px;
+    width: 165px;
+    height: 100%;
+    display: block !important;
+    background-color: #f5f5f5;    
+    z-index: 10;
+    border-right: 1px solid #ddd;
+}           
+
+#menu .button{
+    width: 133px;    
+    border-bottom: 1px solid #ddd;    
+}
+.button.active {
+    background-color: #0077b2;
+    color: White !important;
+}
