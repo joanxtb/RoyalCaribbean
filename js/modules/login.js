@@ -13,7 +13,9 @@ var LoginView = function (store) {
         /* Login form */
         this.el.on('submit', '#login-form', function (e) {
             e.preventDefault();
+            $.validator.unobtrusive.parse("#login-form");
             var __this = $(this);
+            console.log(__this.valid())
             if (__this.valid()) {
                 showLoader();
                 var __connector = new connector();
@@ -40,7 +42,7 @@ var LoginView = function (store) {
     };
 
     this.render = function () {
-        this.el.html(LoginView.template());
+        this.el.html(LoginView.template());        
         return this;
     };
 

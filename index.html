@@ -8,15 +8,13 @@
 <body>
     <!-- Layout -->
     <div id="main-wrapper">
-    </div>
-    <div id="loading"></div>
+    </div>    
     <div id="bottom-sea"></div>
     <div id="menu">
         <a href="#spreads" class="button icon spreads active"><span class="text">Spreads</span></a>
         <a href="#notes" class="button icon pin"><span class="text">Notes</span></a>
-        <a href="#exit" class="button icon exit"><span class="text">Log out</span></a>
-    </div>
-
+        <a href="#exit" class="button icon exit" id="btnExit"><span class="text">Log out</span></a>
+    </div>    
     <!-- templates -->
     <!-- login -->
     <script id="login-template" type="text/x-handlebars-template">
@@ -31,6 +29,7 @@
                 <div class="message"></div>
             </form>
         </div>
+        <div id="loading"></div>
     </script>
 
     <!-- spreads -->
@@ -44,6 +43,7 @@
             <div id="main-title">Here's the brochure of </div>
             <ul class="list" id="spread-list"></ul>
         </div>
+        <div id="loading"></div>
     </script>
 
     <script id="spread-li-template" type="text/x-handlebars-template">

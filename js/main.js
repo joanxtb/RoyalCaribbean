@@ -1,5 +1,7 @@
 var app = {    
     
+    store: null,
+
     /* FEEDBACK */
     showAlert: function (message, title) {
         if (navigator.notification)
@@ -14,6 +16,7 @@ var app = {
 
         /* routes */
         this.spreadsURL = /^#spreads/;
+        this.logoutURL = /^#exit/;
         
         /* events */
         this.registerEvents();
@@ -58,18 +61,26 @@ var app = {
         /* Login */
         if (!hash) {
             // look for local storage:
-            var __owner = this.store.getOwner();
-            if (__owner != null) {
-                $('#main-wrapper').html(new SpreadsView(this.store).render().el); // spreads view
-            } else 
-                $('#main-wrapper').html(new LoginView(this.store).render().el); // login page
-
-            return;
+            var __store = this.store;
+            __store.getOwner(function (owner) {
+                if (owner != null) 
+                    $('#main-wrapper').html(new SpreadsView(__store).render().el); // spreads view
+                else
+                    $('#main-wrapper').html(new LoginView(__store).render().el); // login page    
+            });            
         }
 
         /* Spreads */
-        if (hash.match(app.spreadsURL)) {            
+        if (hash.match(app.spreadsURL)) {
             $('#main-wrapper').html(new SpreadsView(this.store).render().el);            
+        }
+
+        /* Exit */
+        if (hash.match(app.logoutURL)) {
+            this.store.clearOwner(function () {
+                $("#menu").animate({ left: '-165px' }, 0, function () { menuStatus = false; });
+                window.location.hash = '';
+            });            
         }
     }
 };
@@ -102,6 +113,11 @@ $(document).on('click', '#btnMainMenu', function (e) {
     }
 });
 
+$(document).on('click', '#btnExit', function (e) {
+    e.preventDefault();
+    window.location.hash = '#exit';
+});
+
 $(document).on('swipeleft', '.post-header-content', function () {
     if (menuStatus) {
         // opened -> close it
@@ -114,4 +130,8 @@ $(document).on('swiperight', '.post-header-content', function () {
         // closed -> open it
         $("#menu").animate({ left: '0px' }, 300, function () { menuStatus = true; });
     }
+});
+
+jQuery(document).ajaxComplete(function () {
+    $.validator.unobtrusive.parse("form");    
 });
