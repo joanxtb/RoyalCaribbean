@@ -214,6 +214,7 @@ a.button {
     border-radius: 20px;
     background: #f00;
 }
+.bubble-comment.wait { background: url(../img/red-spinner.GIF) no-repeat center center #FF0000; }
 
 .rounded-corners {
     -webkit-border-radius: 5px;

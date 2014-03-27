@@ -7,7 +7,13 @@
         /* events */
         this.el.on('click', '.bubble-comment', function (e) {
             e.preventDefault();
-            $($(this).attr('href')).toggle();
+            var __this = $(this);
+            __this.find(".number").hide();
+            __this.addClass("wait");
+            $($(this).attr('href')).slideToggle(function () {
+                __this.find(".number").show();
+                __this.removeClass('wait');
+            });
         });
     }
 
