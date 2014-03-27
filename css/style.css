@@ -303,6 +303,13 @@ input[type=text], input[type=password] {
     text-align: center;
 }
 
+.blue-arrow-down {
+    width: 42px;
+    height: 48px;
+    background: url(../img/blue-arrow.png) no-repeat center center;       
+    margin: auto;
+}
+
 .list li {
     padding: 10px 0;
 }
