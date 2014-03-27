@@ -78,7 +78,7 @@ var app = {
         /* Exit */
         if (hash.match(app.logoutURL)) {
             this.store.clearOwner(function () {
-                $("#menu").animate({ left: '-165px' }, 0, function () { menuStatus = false; });
+                $("#menu").animate({ left: '-166px' }, 0, function () { menuStatus = false; });
                 window.location.hash = '';
             });            
         }

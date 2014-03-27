@@ -8,13 +8,13 @@
 <body>
     <!-- Layout -->
     <div id="main-wrapper">
-    </div>    
+    </div>
     <div id="bottom-sea"></div>
     <div id="menu">
         <a href="#spreads" class="button icon spreads active"><span class="text">Spreads</span></a>
         <a href="#notes" class="button icon pin"><span class="text">Notes</span></a>
         <a href="#exit" class="button icon exit" id="btnExit"><span class="text">Log out</span></a>
-    </div>    
+    </div>
     <!-- templates -->
     <!-- login -->
     <script id="login-template" type="text/x-handlebars-template">
@@ -35,29 +35,56 @@
     <!-- spreads -->
     <script id="spreads-list-template" type="text/x-handlebars-template">
         <div id="header">
-            <span class="button icon menu" id="btnMainMenu"><span class="button icon royal"><span class="text" style="margin-left: 8px;">Royal Caribbean</span></span></span>
+            <span class="button icon menu" id="btnMainMenu"><span class="button icon royal"><span class="text" style="margin-left: 8px;">Spreads</span></span></span>
             <span class="button icon three-points float-right" id="btnSubMenu"></span>
             <div class="clear"></div>
         </div>
         <div class="post-header-content">
             <div id="main-title">Here's the brochure of </div>
+            <div style="text-align: center;"><img src="/RoyalCaribbean/img/blue-arrow.png" alt="" /></div>            
             <ul class="list" id="spread-list"></ul>
         </div>
         <div id="loading"></div>
     </script>
 
+    <!-- spread -->
     <script id="spread-li-template" type="text/x-handlebars-template">
         {{#.}}
-        <li>
+        <li style="border-bottom: 1px solid #ddd;">
             <div class="stack-icon">
-                <div class="font-10 toBold" style="line-height: 14px;">{{title}}</div>
+                <div class="font-12 toBold" style="line-height: 14px;">{{title}}</div>
                 <div class="font-10 brown">{{sectionName}}</div>
             </div>
             <div class="img-wrapper">
                 <img src="http://royalcplanner.s3.amazonaws.com/spreads/{{file}}-M.png" alt="{{title}}">
                 <!--<div class="fake"></div>-->
+                {{#if notes}}
+                <div class="bubble-comment" style="top: 50%; left: 50%; margin: -20px 0 0 -20px;">{{notes}}</div>
+                {{/if}}
             </div>
-
+            <div>
+                <div class="font-10 button icon version"><span class="text font-10">Current Version: <span class="brown">{{version}}</span></span></div>                
+                {{#if coverCount}}
+                <div class="font-10 button icon cover"><span class="text font-10">Cover(s): <span class="brown">{{coverCount}}</span></span></div>
+                {{/if}}
+                {{#if pageCount}}
+                <div class="font-10 button icon page-plus"><span class="text font-10">Page(s): <span class="brown">{{pageCount}}</span></span></div>
+                {{/if}}
+                {{#if notes}}
+                <div class="font-10 button icon pin"><span class="text font-10">Notes: <span class="brown">{{notes}}</span></span></div>
+                {{/if}}
+            </div>
+            {{#if notes}}
+            <div class="font-10">
+                {{#each spreadnotes}}
+                <div class="button icon comment" style="border-top: 1px solid #ddd; display: block; margin: 10px 5px 0 5px;">
+                    <span class="text line-height-14">
+                        <span class="brown">{{this.authorName}}</span>: <span>{{this.note}}</span>
+                    </span>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
         </li>
         {{/.}}
     </script>

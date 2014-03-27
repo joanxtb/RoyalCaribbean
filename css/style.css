@@ -77,8 +77,7 @@ body {
     cursor: pointer;
     -moz-appearance: none;
     -webkit-appearance: none;
-    appearance: none;
-    font-size: 14px;
+    appearance: none;    
     -webkit-transition: box-shadow .25s;
     -moz-transition: box-shadow .25s;
     -o-transition: box-shadow .25s;
@@ -88,19 +87,21 @@ body {
     display: inline-block;
     margin: 0;
     /*overflow: hidden;*/
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     min-height: 32px;
 }
 
-    .button .text {        
-        line-height: 30px;
-        font-size: 14pt;
+    .button .text {
+        line-height: 30px;        
         text-decoration: none;
     }
-    a.button { text-decoration: none; }
+
+a.button {
+    text-decoration: none;
+}
 
 .btn.tappable-active, .button.tappable-active {
     background-color: #0077b2;
@@ -150,6 +151,7 @@ body {
     .btn.icon.spreads:after, .button.icon.spreads:after {
         background-position: -32px 0;
     }
+
     .btn.icon.spreads.active:after, .button.icon.spreads.active:after {
         background-position: -32px -32px;
     }
@@ -161,6 +163,37 @@ body {
     .btn.icon.exit:after, .button.icon.exit:after {
         background-position: -96px 0;
     }
+
+    .btn.icon.version:after, .button.icon.version:after {
+        background-position: -64px -64px;
+    }
+
+    .btn.icon.page-plus:after, .button.icon.page-plus:after {
+        background-position: -96px -64px;
+    }
+
+    .btn.icon.cover:after, .button.icon.cover:after {
+        background-position: -128px -64px;
+    }
+
+    .btn.icon.comment:after, .button.icon.comment:after {        
+        background-position: -32px -96px;
+    }
+
+.bubble-comment {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: #f00;
+}
 
 .rounded-corners {
     -webkit-border-radius: 5px;
@@ -256,6 +289,7 @@ input[type=text], input[type=password] {
 .post-header-content {
     margin-top: 40px;
     background-color: #f5f5f5;
+    min-height: 100%;
 }
 
     .post-header-content h2 {
@@ -283,25 +317,27 @@ input[type=text], input[type=password] {
 }
 
 .font-10 {
-    font-size: 10pt;
+    font-size: 10pt !important;
 }
 
 .font-12 {
-    font-size: 12pt;
+    font-size: 12pt !important;
 }
 
 .font-14 {
-    font-size: 14pt;
+    font-size: 14pt !important;
 }
 
 .font-16 {
-    font-size: 16pt;
+    font-size: 16pt !important;
 }
 
 .brown {
     color: brown;
 }
-
+.line-height-14{
+    line-height: 14px !important; 
+}
 .img-wrapper {
     position: relative;
     min-height: 280px;
@@ -336,15 +372,16 @@ input[type=text], input[type=password] {
     width: 165px;
     height: 100%;
     display: block !important;
-    background-color: #f5f5f5;    
+    background-color: #f5f5f5;
     z-index: 10;
     border-right: 1px solid #ddd;
-}           
-
-#menu .button{
-    width: 133px;    
-    border-bottom: 1px solid #ddd;    
 }
+
+    #menu .button {
+        width: 133px;
+        border-bottom: 1px solid #ddd;
+    }
+
 .button.active {
     background-color: #0077b2;
     color: White !important;

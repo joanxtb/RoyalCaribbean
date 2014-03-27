@@ -17,7 +17,7 @@
             var __connector = new connector();
             __connector.getSpreads(owner.id, owner.idcountry, function (response) {
                 hideLoader();
-                //console.log(response.model.spreads);
+                console.log(response.model.spreads);
                 $("#spread-list").html('');
                 //$("#spread-list").append(response.model.spreads[0].countryName);
                 response.model.spreads.forEach(function(country){                    
