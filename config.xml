@@ -8,21 +8,23 @@
   <!-- versionCode is optional and Android only -->
 
   <name>Royal Caribbean Planner Tool</name>
-  
+
   <icon src="app.png" width="128" height="128"/>
-  
+
   <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
   <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
   <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
   <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-  
+
   <description>
     A simple version of the Royal Caribbean Brochure Planner Tool
   </description>
 
   <author href="https://plus.google.com/+FreddyJoanTorresBrandy" email="joanxtb@gmail.com">
     Freddy Joan Torres Brandy
-  </author>  
+  </author>
+
+  <preference name="orientation" value="portrait" />
 
   <feature name="http://api.phonegap.com/1.0/camera"/>
   <feature name="http://api.phonegap.com/1.0/contacts"/>

@@ -7,7 +7,7 @@
         /* events */
         this.el.on('click', '.bubble-comment', function (e) {
             e.preventDefault();
-            $($(this).attr('data-target')).slideToggle();
+            $($(this).attr('data-target')).toggle();
         });
     }
 
