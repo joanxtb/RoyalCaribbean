@@ -3,6 +3,12 @@
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
+
+        /* events */
+        this.el.on('click', '.bubble-comment', function (e) {
+            e.preventDefault();
+            $($(this).attr('data-target')).slideToggle();
+        });
     }
 
     this.render = function () {

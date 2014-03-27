@@ -180,6 +180,24 @@ a.button {
         background-position: -32px -96px;
     }
 
+    .btn.icon.clock:after, .button.icon.clock:after {        
+        background-position: -64px -96px;
+    }
+
+
+    .btn.icon.pending:after, .button.icon.pending:after {        
+        background-position: -64px -128px;
+    }
+
+    .btn.icon.inprogress:after, .button.icon.inprogress:after {        
+        background-position: -32px -128px;
+    }
+
+    .btn.icon.finished:after, .button.icon.finished:after {        
+        background-position: -0px -128px;
+    }
+    
+
 .bubble-comment {
     width: 40px;
     height: 40px;
@@ -323,6 +341,9 @@ input[type=text], input[type=password] {
     font-weight: bold;
 }
 
+.font-8 {
+    font-size: 8pt !important;
+}
 .font-10 {
     font-size: 10pt !important;
 }

@@ -24,7 +24,17 @@ var app = {
         /* Local Storage */
         this.store = new Storage(function () {
             self.route(self.store);
-        });        
+        });
+
+        Handlebars.registerHelper("isEquals", function (conditional, options) {
+            console.log(options.hash.desired + " = " + options.hash.type);
+            if (options.hash.desired === options.hash.type) {                
+                return options.fn(this);
+            } else {                
+                return options.inverse(this);
+            }
+        });
+
     },
 
     /* REGISTER EVENTS */

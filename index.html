@@ -41,7 +41,7 @@
         </div>
         <div class="post-header-content">
             <div id="main-title">Here's the brochure of </div>
-            <div class="blue-arrow-down"></div>            
+            <div class="blue-arrow-down"></div>
             <ul class="list" id="spread-list"></ul>
         </div>
         <div id="loading"></div>
@@ -59,11 +59,11 @@
                 <img src="http://royalcplanner.s3.amazonaws.com/spreads/{{file}}-M.png" alt="{{title}}">
                 <!--<div class="fake"></div>-->
                 {{#if notes}}
-                <div class="bubble-comment" style="top: 50%; left: 50%; margin: -20px 0 0 -20px;">{{notes}}</div>
+                <div class="bubble-comment" style="top: 50%; left: 50%; margin: -20px 0 0 -20px;" data-target="#spread-notes-{{id}}">{{notes}}</div>
                 {{/if}}
             </div>
             <div>
-                <div class="font-10 button icon version"><span class="text font-10">Current Version: <span class="brown">{{version}}</span></span></div>                
+                <div class="font-10 button icon version"><span class="text font-10">Current Version: <span class="brown">{{version}}</span></span></div>
                 {{#if coverCount}}
                 <div class="font-10 button icon cover"><span class="text font-10">Cover(s): <span class="brown">{{coverCount}}</span></span></div>
                 {{/if}}
@@ -75,12 +75,27 @@
                 {{/if}}
             </div>
             {{#if notes}}
-            <div class="font-10">
+            <div class="font-10" id="spread-notes-{{id}}" style="display: none;">
                 {{#each spreadnotes}}
-                <div class="button icon comment" style="border-top: 1px solid #ddd; display: block; margin: 10px 5px 0 5px;">
+                <div class="button icon comment" style="border-top: 1px solid #ddd; margin: 0 5px; display: block; padding-top: 10px;">
                     <span class="text line-height-14">
-                        <span class="brown">{{this.authorName}}</span>: <span>{{this.note}}</span>
+                        <span class="brown">{{this.authorName}}</span>: <span class="toBold">{{this.note}}</span>
                     </span>
+                </div>
+                <div class="clear" style="margin: 0 5px 0 30px;">
+
+                    {{#isEquals this.noteStatus desired=1 type=this.noteStatus}}
+                    <span class="button icon pending"><span class="button icon clock"><span class="text font-8">{{this.moment}}</span></span></span>
+                    {{/isEquals}}
+
+                    {{#isEquals this.noteStatus desired=2 type=this.noteStatus}}
+                    <span class="button icon inprogress"><span class="button icon clock"><span class="text font-8">{{this.moment}}</span></span></span>
+                    {{/isEquals}}
+
+                    {{#isEquals this.noteStatus desired=3 type=this.noteStatus}}
+                    <span class="button icon finished"><span class="button icon clock"><span class="text font-8">{{this.moment}}</span></span></span>
+                    {{/isEquals}}
+
                 </div>
                 {{/each}}
             </div>
